@@ -1,29 +1,34 @@
-
 <!DOCTYPE html>
-   <html>
-   <head>
-       <title>Calculator</title>
-   </head>
-   <body>
-       <h1>Calculator</h1>
-       <form method="POST" action="/calculate/">
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body style="font-family: 'Arial', sans-serif; margin: 0; padding: 0; background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; display: flex; justify-content: center; align-items: center; height: 100vh;">
 
+    <div style="background: rgba(255, 255, 255, 0.9); border-radius: 15px; padding: 30px 40px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); width: 90%; max-width: 400px; text-align: center;">
+        <h1 style="margin-bottom: 20px; font-size: 2rem; color: #333;">Calculator</h1>
+
+        <form method="POST" action="/calculate/">
             {% csrf_token %}
-           
-           <label for="num1">Number 1:</label>
-           <input type="number" id="num1" name="num1" required><br><br>
- 
-           <label for="num2">Number 2:</label>
-           <input type="number" id="num2" name="num2" required><br><br>
- 
-           <button type="submit" name="operation" value="ADD">ADD</button>
-           <button type="submit" name="operation" value="SUB">SUB</button>
-           <button type="submit" name="operation" value="MUL">MUL</button>
-           <button type="submit" name="operation" value="DIV">DIV</button>
-       </form>
 
-       {% if result %}<h2>Result: {{ result }}</h2>
-       {% endif %}
- 
-   </body>
-   </html>
+            <label for="num1" style="display: block; font-size: 1rem; margin-bottom: 10px; color: #444;">Number 1:</label>
+            <input type="number" id="num1" name="num1" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+
+            <label for="num2" style="display: block; font-size: 1rem; margin-bottom: 10px; color: #444;">Number 2:</label>
+            <input type="number" id="num2" name="num2" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+
+            <div style="margin-top: 20px;">
+                <button type="submit" name="operation" value="ADD" style="padding: 10px 20px; margin: 5px; border: none; background: #28a745; color: white; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background 0.3s;">ADD</button>
+                <button type="submit" name="operation" value="SUB" style="padding: 10px 20px; margin: 5px; border: none; background: #007bff; color: white; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background 0.3s;">SUB</button>
+                <button type="submit" name="operation" value="MUL" style="padding: 10px 20px; margin: 5px; border: none; background: #ffc107; color: white; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background 0.3s;">MUL</button>
+                <button type="submit" name="operation" value="DIV" style="padding: 10px 20px; margin: 5px; border: none; background: #dc3545; color: white; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background 0.3s;">DIV</button>
+            </div>
+        </form>
+
+        {% if result %}
+        <h2 style="margin-top: 20px; font-size: 1.5rem; color: #444;">Result: {{ result }}</h2>
+        {% endif %}
+    </div>
+
+</body>
+</html>
